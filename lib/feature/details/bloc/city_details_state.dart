@@ -11,6 +11,7 @@ sealed class CityDetailsState {
 
   const factory CityDetailsState.loaded({
     required City city,
+    required Weather weather,
   }) = CityDetailsLoaded;
 
   const factory CityDetailsState.error({
@@ -24,7 +25,6 @@ final class CityDetailsInitial extends CityDetailsState {
 
 final class CityDetailsLoading extends CityDetailsState {
   final City city;
-
   const CityDetailsLoading({
     required this.city,
   });
@@ -32,8 +32,11 @@ final class CityDetailsLoading extends CityDetailsState {
 
 final class CityDetailsLoaded extends CityDetailsState {
   final City city;
+  final Weather weather;
+
   const CityDetailsLoaded({
     required this.city,
+    required this.weather,
   });
 }
 

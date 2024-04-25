@@ -1,6 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:weather/app.dart';
 
 void main() {
-  runApp(const App());
+  runZonedGuarded(
+    () => runApp(const App()),
+    (error, stack) {
+      //TODO() Handle uncaught errors
+    },
+  );
 }

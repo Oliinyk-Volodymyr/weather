@@ -20,7 +20,9 @@ class CityDetailsScreen extends StatelessWidget {
         builder: (_, state) => switch (state) {
           CityDetailsInitial() => const CityDetailsFatalBody(),
           CityDetailsLoading() => const LoadingBody(),
-          CityDetailsLoaded() => const CityDetailsLoadedBody(),
+          CityDetailsLoaded(:final weather) => CityDetailsLoadedBody(
+              weather: weather,
+            ),
           CityDetailsError(:final city) => ErrorBody(
               onRetry: () => context.read<CityDetailsBloc>().add(CityDetailsEvent.fetch(city: city)),
             ),

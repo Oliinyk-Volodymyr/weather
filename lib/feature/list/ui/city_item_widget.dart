@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather/data/model/city.dart';
+import 'package:weather/data/model/bo/city.dart';
 import 'package:weather/feature/details/bloc/city_details_bloc.dart';
 
 class CityItemWidget extends StatelessWidget {
@@ -19,8 +19,17 @@ class CityItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final weather = city.weather;
+    final textTheme = Theme.of(context).textTheme;
+
     return ListTile(
       title: Text(city.name),
+      trailing: weather == null
+          ? null
+          : Text(
+              '${weather.temp} °C',
+              style: textTheme.bodyLarge,
+            ),
       onTap: () => _handleTap(context),
     );
   }

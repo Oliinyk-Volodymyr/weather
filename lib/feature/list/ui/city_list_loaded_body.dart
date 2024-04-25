@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather/data/model/city.dart';
+import 'package:weather/data/model/bo/city.dart';
 import 'package:weather/feature/list/ui/city_item_widget.dart';
 
 class CityListLoadedBody extends StatelessWidget {
